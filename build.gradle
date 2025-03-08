@@ -50,3 +50,14 @@ processResources {
 		exclude '**/*.info'
 	}
 }
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+artifacts {
+archives sourceJar
+    archives deobfJar
+    archives jar
+}
